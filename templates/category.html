@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+		<div class="row fh5co-post-entry">
+			{% for category in category_list %}
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="{% url 'category-url' category.id %}"><img src="{% static 'images/pic_1.jpg' %}" alt="Image" class="img-responsive"></a>
+				</figure>
+				<h2 class="fh5co-article-title"><a href="#">{{category.title}}</a></h2>
+			</article>
+			<div class="clearfix visible-xs-block"></div>
+
+<!--			<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div> это перенос на след строку-->
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
